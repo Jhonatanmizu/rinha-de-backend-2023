@@ -15,7 +15,7 @@ export class UsersService {
     return await this.prismaService.user.findMany();
   }
 
-  async findOne(id: number) {
+  async findOne(id: string) {
     return await this.prismaService.user.findFirst({
       where: {
         id,
@@ -23,7 +23,7 @@ export class UsersService {
     });
   }
 
-  async update(id: number, updateUserDto: UpdateUserDto) {
+  async update(id: string, updateUserDto: UpdateUserDto) {
     return await this.prismaService.user.update({
       where: {
         id,
@@ -32,7 +32,7 @@ export class UsersService {
     });
   }
 
-  async remove(id: number) {
+  async remove(id: string) {
     return await this.prismaService.user.delete({ where: { id } });
   }
 }
